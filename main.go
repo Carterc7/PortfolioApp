@@ -1,17 +1,22 @@
 package main
 
 import (
-	"net/http"
-
+	"github.com/Carterc7/PortfolioApp/controllers"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	router := gin.Default()
 
-	router.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "Welcome to PortfolioApp!")
-	})
+	// Load HTML templates
+	router.LoadHTMLGlob("templates/*")
 
-	router.Run(":8080") // Runs on localhost:8080
+	// Use the ShowHomePage function from main-controller.go
+	router.GET("/", controllers.ShowHomePage)
+	router.GET("/about", controllers.ShowAboutPage)
+	router.GET("/projects", controllers.ShowProjectsPage)
+	router.GET("/fantasy-about", controllers.ShowAboutFantasyPage)
+	router.Static("/assets", "./assets")
+
+	router.Run(":8081") // Runs on localhost:8081
 }
