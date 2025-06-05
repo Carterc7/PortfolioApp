@@ -1,8 +1,7 @@
 {{ define "navbar" }}
 <style>
-  /* Import Custom Font */
   @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap");
-  /* Reset Default Styles */
+
   * {
     margin: 0;
     padding: 0;
@@ -10,19 +9,15 @@
     font-family: "Inconsolata", sans-serif;
   }
 
-  /* Navbar Styling */
   nav {
     width: 100%;
     background: #181818;
     padding: 0 0;
-    position: fixed; /* Stays at the top */
-    top: 0;
-    left: 0;
-    z-index: 1000;
     position: relative;
     display: flex;
-    justify-content: space-between; /* Align items at both ends */
+    justify-content: space-between;
     align-items: center;
+    z-index: 1000;
   }
 
   .logo img {
@@ -35,7 +30,6 @@
     transform: scale(1.2);
   }
 
-  /* RGB Line at the bottom of the navbar */
   nav::after {
     content: "";
     position: absolute;
@@ -48,7 +42,6 @@
     animation: pulseBorder 8s ease infinite;
   }
 
-  /* Keyframes for the RGB border animation */
   @keyframes pulseBorder {
     0% {
       background-position: 0% 50%;
@@ -95,7 +88,6 @@
     font-weight: bold;
   }
 
-  /* Responsive Design */
   @media (max-width: 768px) {
     nav ul {
       flex-direction: column;
@@ -118,20 +110,10 @@
     <li><a href="/about">About</a></li>
     <li><a href="/projects">Projects</a></li>
     <li>
-      <a href="#" onclick="confirmResumeLink(event)"> R&eacute;sum&eacute; </a>
+      <a href="/assets/portfolio-resume.pdf" target="_blank" rel="noopener noreferrer">
+        R&eacute;sum&eacute;
+      </a>
     </li>
   </ul>
 </nav>
-<script>
-  function confirmResumeLink(event) {
-    event.preventDefault(); // Prevent the default link behavior
-    const confirmed = confirm(
-      "You are about to open my résumé on Indeed in a new tab. Continue?"
-    );
-    if (confirmed) {
-      window.open("https://profile.indeed.com/p/carterc-n7ylttb", "_blank");
-    }
-  }
-</script>
-
 {{ end }}
