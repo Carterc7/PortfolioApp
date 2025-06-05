@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"github.com/Carterc7/PortfolioApp/controllers"
 	"github.com/gin-gonic/gin"
 )
@@ -19,5 +21,10 @@ func main() {
 	router.GET("/poll-about", controllers.ShowAboutPollPage)
 	router.Static("/assets", "./assets")
 
-	router.Run(":8081") // Runs on localhost:8081
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // fallback for local development
+	}
+
+	router.Run(":" + port)
 }
