@@ -16,6 +16,7 @@ func main() {
 	router.GET("/about", controllers.ShowAboutPage)
 	router.GET("/projects", controllers.ShowProjectsPage)
 	router.GET("/fantasy-about", controllers.ShowAboutFantasyPage)
+	router.GET("/poll-about", controllers.ShowAboutPollPage)
 	router.Static("/assets", "./assets")
 
 	router.Run(":8081") // Runs on localhost:8081

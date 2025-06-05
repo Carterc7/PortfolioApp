@@ -14,6 +14,12 @@ func ShowAboutPage(c *gin.Context) {
 
 func ShowAboutFantasyPage(c *gin.Context) {
 	c.HTML(http.StatusOK, "about-fantasy.html", gin.H{
-		"title": "Fantasy | About",
+		"title": "Mock O' Clock | About",
+	})
+}
+
+func ShowAboutPollPage(c *gin.Context) {
+	c.HTML(http.StatusOK, "about-poll.html", gin.H{
+		"title": "PollMatic | About",
 	})
 }
