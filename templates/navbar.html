@@ -6,28 +6,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inconsolata", sans-serif;
+    font-family: "Inconsolata", monospace;
   }
 
   nav {
     width: 100%;
     background: #181818;
-    padding: 0 0;
+    padding: 0;
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     z-index: 1000;
-  }
-
-  .logo img {
-    margin-left: 40px;
-    height: 85px;
-    width: 85px;
-  }
-
-  .logo a img:hover {
-    transform: scale(1.2);
+    border-bottom: 2px solid transparent;
   }
 
   nav::after {
@@ -40,6 +28,7 @@
     background: linear-gradient(270deg, #ff00ff, #00ffff, #00ff00, #ff00ff);
     background-size: 600% 600%;
     animation: pulseBorder 8s ease infinite;
+    z-index: -1;
   }
 
   @keyframes pulseBorder {
@@ -54,66 +43,137 @@
     }
   }
 
-  nav ul {
+  .navbar-container {
     display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    height: 85px;
   }
 
-  nav ul li {
-    margin: 20px 20px 0px 20px;
+  .logo img {
+    height: 85px;
+    width: 85px;
+    transition: transform 0.3s ease;
   }
 
-  nav ul li a {
-    text-decoration: none;
-    color: #ffffff;
-    opacity: 0.7;
-    font-size: 24px;
-    font-weight: 400;
-    padding: 10px 35px;
-    transition: color 0.3s ease, background 0.3s ease;
-  }
-
-  nav ul li:hover {
-    color: #46c455;
-    opacity: 1;
-    background: none;
-    border-radius: 0;
+  .logo a img:hover {
     transform: scale(1.2);
   }
 
-  nav ul li a:hover {
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    height: 85px;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: #ffffff;
+    opacity: 0.7;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 0.6rem 1.5rem 0 1.5rem;
+    transition: color 0.3s ease, background 0.3s ease;
+  }
+
+  .nav-links li:hover a {
     color: #46c455;
     font-weight: bold;
   }
 
+  .nav-links li:hover {
+    transform: scale(1.2);
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+  }
+
+  .menu-toggle span {
+    height: 4px;
+    width: 30px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* Hide résumé link on small screens */
   @media (max-width: 768px) {
-    nav ul {
+    .nav-links {
+      position: absolute;
+      top: 85px;
+      left: 0;
+      right: 0;
+      background: #181818;
       flex-direction: column;
       align-items: center;
+      gap: 1rem;
+      padding: 2rem 0;
+      display: none;
+      margin-bottom: 0;
+      height: auto;
     }
 
-    nav ul li {
-      margin: 10px 0;
+    .nav-links.active {
+      display: flex;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .resume-link {
+      display: none;
     }
   }
 </style>
 
 <nav>
-  <div class="logo">
-    <a href="/">
-      <img src="/assets/cclogo.png" alt="Logo" />
-    </a>
-  </div>
-  <ul>
-    <li><a href="/about">About</a></li>
-    <li><a href="/projects">Projects</a></li>
-    <li>
-      <a href="/assets/ccampbell-resume.pdf" target="_blank" rel="noopener noreferrer">
-        R&eacute;sum&eacute;
+  <div class="navbar-container">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="/">
+        <img src="/assets/cclogo.png" alt="Logo" />
       </a>
-    </li>
-  </ul>
+    </div>
+
+    <!-- Menu Toggle (mobile) -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/about" onclick="closeMenu()">About</a></li>
+      <li><a href="/projects" onclick="closeMenu()">Projects</a></li>
+      <li class="resume-link">
+        <a href="/assets/ccampbell-resume.pdf" target="_blank" rel="noopener noreferrer">
+          R&eacute;sum&eacute;
+        </a>
+      </li>
+    </ul>
+  </div>
 </nav>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("active");
+  }
+
+  function closeMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.remove("active");
+  }
+</script>
 {{ end }}
+

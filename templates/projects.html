@@ -17,7 +17,6 @@
     <link rel="apple-touch-icon" href="/assets/cclogo.png" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Pixelify+Sans:wght@400..700&display=swap");
-
       body,
       html {
         margin: 0;
@@ -141,7 +140,10 @@
         margin: 20px;
         display: flex;
         flex-direction: column;
-        height: 100%;
+        flex: 1 1 300px;
+        max-width: 350px;
+        min-width: 260px;
+        position: relative;
       }
 
       .card.custom-card:hover {
@@ -177,6 +179,7 @@
         flex-direction: column;
         justify-content: space-between;
         min-height: 300px;
+        position: relative;
       }
 
       .card-text {
@@ -187,9 +190,60 @@
       .section {
         display: flex;
         justify-content: center;
+        align-items: stretch;
         gap: 40px;
         flex-wrap: wrap;
         margin-top: 30px;
+      }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          padding: 5px;
+          width: 90%;
+        }
+
+        h1 {
+          margin-top: 10px;
+          font-size: 2.2rem;
+        }
+
+        .section {
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          padding: 0 10px;
+        }
+
+        .card.custom-card {
+          width: 100%;
+          margin: 10px 0;
+          align-items: center;
+          text-align: center;
+        }
+
+        .card-title {
+          font-size: 1.5rem;
+          text-align: center;
+        }
+
+        .card-text {
+          font-size: 0.85rem;
+          text-align: center;
+        }
+
+        .card-body {
+          min-height: auto;
+          padding: 1rem;
+        }
+
+        .card-img-container {
+          height: 200px;
+        }
+
+        .footer-content img {
+          width: 30px;
+          height: 30px;
+        }
       }
     </style>
   </head>
@@ -202,12 +256,12 @@
         <hr />
         <div class="section">
           <!-- Mock O' Clock Card -->
-          <a href="/fantasy-about" class="text-decoration-none text-reset">
-            <div class="card custom-card" style="width: 25rem">
+          <a href="/fantasy-about" class="text-decoration-none">
+            <div class="card custom-card position-relative">
               <div class="card-img-container">
                 <img src="/assets/mock_logo.png" alt="Mock O' Clock" />
               </div>
-              <div class="card-body d-flex flex-column">
+              <div class="card-body d-flex flex-column position-relative">
                 <h5 class="card-title">Mock O' Clock</h5>
                 <p class="card-text mt-2">
                   Mock O' Clock is a full-stack Java Spring Boot web app for
@@ -216,18 +270,17 @@
                   customizable mock drafts against intelligent CPU opponents —
                   perfect for testing draft strategies before the real thing.
                 </p>
-                <span class="stretched-link"></span>
               </div>
             </div>
           </a>
 
           <!-- PollMatic Card -->
-          <a href="/poll-about" class="text-decoration-none text-reset">
-            <div class="card custom-card" style="width: 25rem">
+          <a href="/poll-about" class="text-decoration-none">
+            <div class="card custom-card position-relative">
               <div class="card-img-container">
                 <img src="/assets/pollmatic-logo.png" alt="PollMatic" />
               </div>
-              <div class="card-body d-flex flex-column">
+              <div class="card-body d-flex flex-column position-relative">
                 <h5 class="card-title">PollMatic</h5>
                 <p class="card-text mt-2">
                   PollMatic is a full-stack Go web app that makes it easy to
@@ -238,16 +291,17 @@
                   perfect for quick feedback, group decisions, or anonymous
                   input.
                 </p>
-                <span class="stretched-link"></span>
               </div>
             </div>
           </a>
         </div>
+
         <p style="justify-content: center; margin-top: 80px; color: #d4c3c3">
           More coming soon...
         </p>
       </div>
     </section>
+
     <footer class="footer">
       <div class="footer-content">
         <a

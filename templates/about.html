@@ -258,6 +258,67 @@
       .card-text {
         font-size: 0.8rem;
       }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          padding: 10px;
+          width: 90%;
+        }
+
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .section {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+
+        .section p {
+          font-size: 1rem;
+        }
+
+        .job-details {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .job-logo img {
+          width: 40px;
+          height: 40px;
+        }
+
+        .job-info p {
+          font-size: 1rem;
+        }
+
+        .tech-section,
+        .experience-section {
+          padding: 5px;
+          margin-top: 30px;
+          margin-bottom: 30px;
+        }
+
+        .tech-logos {
+          gap: 10px;
+        }
+
+        .tech-logos img {
+          width: 40px;
+          height: 40px;
+        }
+
+        .contact-button {
+          font-size: 1.1rem;
+          padding: 8px 16px;
+        }
+
+        h3 {
+          font-size: 1.5rem;
+          text-align: center;
+        }
+      }
     </style>
   </head>
   <body>
@@ -297,7 +358,7 @@
           <h3>My Languages and Frameworks</h3>
           <hr />
           <div
-            class="tech-logos row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3"
+            class="tech-logos row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-2"
           >
             <!-- Java -->
             <div class="col">

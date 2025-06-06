@@ -13,8 +13,6 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/cclogo.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/cclogo.png" />
-
-    <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" href="/assets/cclogo.png" />
 
     <style>
@@ -31,13 +29,13 @@
       }
 
       .content-wrapper {
-        padding: 60px 20px;
+        padding: 60px 15px;
         max-width: 1000px;
         margin: auto;
       }
 
       h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         color: #46c455;
         font-family: "Pixelify Sans", sans-serif;
         font-weight: 700;
@@ -53,47 +51,30 @@
 
       .glow-box {
         background-color: rgb(30, 30, 30);
-        padding: 40px;
+        padding: 30px;
         border-radius: 20px;
-        position: relative;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         margin-bottom: 50px;
-        justify-content: center;
-        align-items: center;
-      }
-
-      @keyframes pulseBorder {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
       }
 
       .carousel {
         border-radius: 20px;
         overflow: hidden;
         box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-        justify-content: center;
       }
 
       .carousel-item p {
         font-family: "Pixelify Sans", sans-serif;
         font-size: 1.5rem;
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
+        text-align: center;
         color: #46c455;
+        margin-top: 10px;
       }
 
       .carousel img {
         object-fit: contain;
         width: 100%;
-        height: 500px;
+        height: 400px;
         background-color: #111;
       }
 
@@ -110,15 +91,15 @@
 
       .stack-logos {
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
         gap: 20px;
+        margin-top: 20px;
       }
 
       .stack-logos > div {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -127,7 +108,7 @@
       .stack-logos img {
         width: 100%;
         height: 100%;
-        object-fit: fill;
+        object-fit: contain;
       }
 
       hr {
@@ -139,17 +120,16 @@
         opacity: 0.7;
       }
 
-      .center-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0px;
+      .pollmatic-link:hover {
+        transform: scale(1.1);
       }
 
-      .features-list {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      .features-list ul {
+        padding-left: 1.2rem;
+      }
+
+      .features-list li {
+        margin-bottom: 10px;
         font-size: 1.1rem;
       }
 
@@ -157,8 +137,6 @@
         background-color: #181818;
         padding: 20px 0;
         text-align: center;
-        z-index: 2;
-        position: relative;
       }
 
       .footer-content a.icon {
@@ -177,8 +155,27 @@
         height: 40px;
       }
 
-      .pollmatic-link:hover {
-        transform: scale(1.2);
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .carousel img {
+          height: 250px;
+        }
+
+        .carousel-item p {
+          font-size: 1.2rem;
+        }
+
+        .stack-logos > div {
+          width: 80px;
+          height: 80px;
+        }
+
+        .features-list li {
+          font-size: 1rem;
+        }
       }
     </style>
   </head>
@@ -199,33 +196,24 @@
           poll management, it’s the perfect tool for gathering opinions in any
           setting.
         </p>
-        <div
-          style="display: flex; justify-content: center; align-items: center"
-        >
+
+        <div class="text-center mb-3">
           <a
-            class="pollmatic-link"
-            style="
-              color: #46c455;
-              font-weight: bold;
-              font-size: 1.1rem;
-              margin-bottom: 5px;
-            "
+            class="pollmatic-link d-block"
+            style="color: #46c455; font-weight: bold; font-size: 1.1rem"
             href="https://github.com/Carterc7/VoterApp"
             target="_blank"
             >github repo</a
           >
-        </div>
-        <div
-          style="display: flex; justify-content: center; align-items: center"
-        >
           <a
-            class="pollmatic-link"
+            class="pollmatic-link d-block"
             style="color: #46c455; font-weight: bold; font-size: 1.1rem"
             href="https://pollmatic-app-d380bfccecc8.herokuapp.com/"
             target="_blank"
             >visit PollMatic</a
           >
         </div>
+
         <div class="stack-logos">
           <div>
             <img
@@ -251,70 +239,34 @@
 
       <div
         id="mockCarousel"
-        class="carousel slide carousel-dark"
+        class="carousel slide carousel-dark mb-5"
         data-bs-ride="carousel"
       >
         <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#mockCarousel"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#mockCarousel"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#mockCarousel"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
+          <button type="button" data-bs-target="#mockCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#mockCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
             <p>VOTE ON POLLS (NO LOGIN REQUIRED)</p>
-            <img
-              src="/assets/vote-pollmatic.png"
-              class="d-block w-100"
-              alt="Mock Details"
-            />
+            <img src="/assets/vote-pollmatic.png" class="d-block w-100" alt="Vote View" />
           </div>
           <div class="carousel-item">
             <p>MANAGE AND VIEW YOUR POLLS</p>
-            <img
-              src="/assets/manage-pollmatic.png"
-              class="d-block w-100"
-              alt="Mock Draft"
-            />
+            <img src="/assets/manage-pollmatic.png" class="d-block w-100" alt="Manage Polls" />
           </div>
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#mockCarousel"
-          data-bs-slide="prev"
-        >
+        <button class="carousel-control-prev" type="button" data-bs-target="#mockCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#mockCarousel"
-          data-bs-slide="next"
-        >
+        <button class="carousel-control-next" type="button" data-bs-target="#mockCarousel" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
 
-      <div class="glow-box" style="margin-top: 40px">
+      <div class="glow-box">
         <h1>&lt; features /&gt;</h1>
         <hr />
         <div class="features-list">
@@ -330,38 +282,24 @@
         </div>
       </div>
     </div>
+
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
-        <a
-          href="https://www.linkedin.com/in/carter-campbell-00996123b/"
-          target="_blank"
-          class="icon"
-        >
-          <img
-            src="https://img.icons8.com/?size=96&id=13930&format=png"
-            alt="LinkedIn"
-          />
+        <a href="https://www.linkedin.com/in/carter-campbell-00996123b/" target="_blank" class="icon">
+          <img src="https://img.icons8.com/?size=96&id=13930&format=png" alt="LinkedIn" />
         </a>
         <a href="https://github.com/Carterc7" target="_blank" class="icon">
-          <img
-            src="https://img.icons8.com/?size=96&id=AZOZNnY73haj&format=png"
-            alt="GitHub"
-          />
+          <img src="https://img.icons8.com/?size=96&id=AZOZNnY73haj&format=png" alt="GitHub" />
         </a>
-        <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=cartercampbell.dev@gmail.com"
-          target="_blank"
-          class="icon"
-        >
-          <img
-            src="https://img.icons8.com/?size=96&id=P7UIlhbpWzZm&format=png"
-            alt="Email"
-          />
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cartercampbell.dev@gmail.com" target="_blank" class="icon">
+          <img src="https://img.icons8.com/?size=96&id=P7UIlhbpWzZm&format=png" alt="Email" />
         </a>
       </div>
     </footer>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+
