@@ -11,11 +11,12 @@
 
   nav {
     width: 100%;
-    background: #181818;
+    background: linear-gradient(135deg, #181818 0%, #1a1a1a 100%);
     padding: 0;
     position: relative;
     z-index: 1000;
     border-bottom: 2px solid transparent;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   }
 
   nav::after {
@@ -47,46 +48,89 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    height: 85px;
+    padding: 0.75rem 2rem;
+    height: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .logo img {
-    height: 85px;
-    width: 85px;
-    transition: transform 0.3s ease;
+    height: 70px;
+    width: 70px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(70, 196, 85, 0.3));
   }
 
   .logo a img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(70, 196, 85, 0.6));
   }
 
   .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
-    align-items: flex-end;
-    margin-bottom: 3rem;
-    height: 85px;
+    gap: 2.5rem;
+    align-items: center;
+    margin: 0;
+    height: 80px;
+  }
+
+  .nav-links li {
+    position: relative;
   }
 
   .nav-links li a {
     text-decoration: none;
     color: #ffffff;
-    opacity: 0.7;
-    font-size: 1.5rem;
-    font-weight: 400;
-    padding: 0.6rem 1.5rem 0 1.5rem;
-    transition: color 0.3s ease, background 0.3s ease;
+    opacity: 0.8;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
   }
 
-  .nav-links li:hover a {
+  .nav-links li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(70, 196, 85, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .nav-links li a:hover::before {
+    left: 100%;
+  }
+
+  .nav-links li a:hover {
     color: #46c455;
-    font-weight: bold;
+    background: rgba(70, 196, 85, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(70, 196, 85, 0.2);
   }
 
   .nav-links li:hover {
-    transform: scale(1.2);
+    transform: scale(1.05);
+  }
+
+  .resume-link a {
+    background: linear-gradient(135deg, #46c455, #3aa344);
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px rgba(70, 196, 85, 0.3);
+  }
+
+  .resume-link a:hover {
+    background: linear-gradient(135deg, #3aa344, #46c455);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(70, 196, 85, 0.4);
   }
 
   .menu-toggle {
@@ -94,35 +138,78 @@
     flex-direction: column;
     cursor: pointer;
     gap: 6px;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle:hover {
+    background: rgba(70, 196, 85, 0.1);
   }
 
   .menu-toggle span {
-    height: 4px;
-    width: 30px;
-    background: #fff;
+    height: 3px;
+    width: 25px;
+    background: #46c455;
     border-radius: 2px;
     transition: 0.3s;
   }
 
-  /* Hide résumé link on small screens */
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* Mobile responsive */
   @media (max-width: 768px) {
+    .navbar-container {
+      padding: 0.5rem 1rem;
+    }
+
+    .logo img {
+      height: 60px;
+      width: 60px;
+    }
+
     .nav-links {
       position: absolute;
-      top: 85px;
+      top: 80px;
       left: 0;
       right: 0;
-      background: #181818;
+      background: linear-gradient(135deg, #181818 0%, #1a1a1a 100%);
       flex-direction: column;
       align-items: center;
       gap: 1rem;
       padding: 2rem 0;
       display: none;
-      margin-bottom: 0;
+      margin: 0;
       height: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      border-bottom: 2px solid #46c455;
     }
 
     .nav-links.active {
       display: flex;
+    }
+
+    .nav-links li {
+      width: 100%;
+      text-align: center;
+    }
+
+    .nav-links li a {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      border-radius: 0;
+      font-size: 1.2rem;
     }
 
     .menu-toggle {
@@ -130,7 +217,23 @@
     }
 
     .resume-link {
-      display: none;
+      display: block;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .navbar-container {
+      padding: 0.5rem;
+    }
+
+    .logo img {
+      height: 50px;
+      width: 50px;
+    }
+
+    .nav-links li a {
+      font-size: 1.1rem;
+      padding: 0.75rem;
     }
   }
 </style>
@@ -140,12 +243,12 @@
     <!-- Logo -->
     <div class="logo">
       <a href="/">
-        <img src="/assets/cclogo.png" alt="Logo" />
+        <img src="/assets/cclogo.png" alt="Carter Campbell Logo" />
       </a>
     </div>
 
     <!-- Menu Toggle (mobile) -->
-    <div class="menu-toggle" onclick="toggleMenu()">
+    <div class="menu-toggle" onclick="toggleMenu()" id="menuToggle">
       <span></span>
       <span></span>
       <span></span>
@@ -157,7 +260,7 @@
       <li><a href="/projects" onclick="closeMenu()">Projects</a></li>
       <li class="resume-link">
         <a href="/assets/cartercampbellresume.pdf" target="_blank" rel="noopener noreferrer">
-          R&eacute;sum&eacute;
+          Résumé
         </a>
       </li>
     </ul>
@@ -167,13 +270,29 @@
 <script>
   function toggleMenu() {
     const nav = document.getElementById("navLinks");
+    const menuToggle = document.getElementById("menuToggle");
     nav.classList.toggle("active");
+    menuToggle.classList.toggle("active");
   }
 
   function closeMenu() {
     const nav = document.getElementById("navLinks");
+    const menuToggle = document.getElementById("menuToggle");
     nav.classList.remove("active");
+    menuToggle.classList.remove("active");
   }
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    const nav = document.getElementById("navLinks");
+    const menuToggle = document.getElementById("menuToggle");
+    const isClickInsideNav = nav.contains(event.target);
+    const isClickOnToggle = menuToggle.contains(event.target);
+    
+    if (!isClickInsideNav && !isClickOnToggle && nav.classList.contains("active")) {
+      closeMenu();
+    }
+  });
 </script>
 {{ end }}
 

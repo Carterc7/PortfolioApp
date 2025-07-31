@@ -50,31 +50,10 @@
 
       .hero-content {
         position: relative;
-        background-color: rgb(30, 30, 30);
-        opacity: 0.85;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         z-index: 2;
-        width: 80%;
-        max-width: 1000px;
+        width: 90%;
+        max-width: 1400px;
         margin-bottom: 40px;
-      }
-
-      .hero-content::before {
-        content: "";
-        position: absolute;
-        top: -4px;
-        left: -4px;
-        right: -4px;
-        bottom: -4px;
-        border-radius: 20px;
-        border: 2px solid #121212;
-        background-size: 600% 600%;
-        z-index: -1;
-        mask-composite: exclude;
-        -webkit-mask-composite: destination-out;
-        padding: 4px;
       }
 
       h1 {
@@ -82,41 +61,247 @@
         color: #46c455;
         font-family: "Pixelify Sans", sans-serif;
         font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 0 0 20px rgba(70, 196, 85, 0.3);
       }
 
       hr {
         border: none;
-        height: 2px;
-        background: #46c455;
-        margin: 10px auto 30px auto;
-        width: 80%;
-        opacity: 0.7;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #46c455, transparent);
+        margin: 20px auto 40px auto;
+        width: 60%;
+        opacity: 0.8;
+        border-radius: 2px;
+      }
+
+      .section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        align-items: stretch;
+        padding: 20px 0;
+      }
+
+      .card.custom-card {
+        background: linear-gradient(135deg, #2a2a2a 0%, #303030 100%);
+        border: 2px solid rgba(70, 196, 85, 0.1);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        cursor: pointer;
+        position: relative;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        flex: 1 1 500px;
+        max-width: 600px;
+        min-width: 400px;
+        height: 500px;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card.custom-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(70, 196, 85, 0.1), transparent);
+        transition: left 0.6s ease;
+        z-index: 1;
+      }
+
+      .card.custom-card:hover::before {
+        left: 100%;
+      }
+
+      .card.custom-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        border-color: rgba(70, 196, 85, 0.3);
+        box-shadow: 0 15px 40px rgba(70, 196, 85, 0.2);
+      }
+
+      .card-img-container {
+        height: 200px;
+        background: linear-gradient(135deg, #1a1a1a 0%, #222222 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+
+      .card-img-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, transparent 30%, rgba(70, 196, 85, 0.05) 50%, transparent 70%);
+        transition: all 0.4s ease;
+      }
+
+      .card.custom-card:hover .card-img-container::after {
+        background: linear-gradient(45deg, transparent 30%, rgba(70, 196, 85, 0.1) 50%, transparent 70%);
+      }
+
+      .card-img-container img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transition: all 0.4s ease;
+        filter: drop-shadow(0 0 10px rgba(70, 196, 85, 0.2));
+      }
+
+      .card.custom-card:hover .card-img-container img {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 15px rgba(70, 196, 85, 0.4));
+      }
+
+      .card-body {
+        padding: 25px;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+      }
+
+      .card-title {
+        font-family: "Pixelify Sans", sans-serif;
+        font-size: 1.8rem;
+        color: #46c455;
+        margin-bottom: 12px;
+        font-weight: 700;
+        text-shadow: 0 0 10px rgba(70, 196, 85, 0.3);
+        flex-shrink: 0;
+      }
+
+      .card-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #d4d4d4;
+        margin: 0;
+        flex: 1;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+      }
+
+      .card-footer {
+        margin-top: 15px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(70, 196, 85, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .tech-stack {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .tech-tag {
+        background: linear-gradient(135deg, #46c455, #3aa344);
+        color: white;
+        padding: 3px 10px;
+        border-radius: 10px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(70, 196, 85, 0.3);
+      }
+
+      .view-project-btn {
+        background: linear-gradient(135deg, #46c455, #3aa344);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(70, 196, 85, 0.3);
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .view-project-btn:hover {
+        background: linear-gradient(135deg, #3aa344, #46c455);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(70, 196, 85, 0.4);
+        color: white;
+      }
+
+      .coming-soon {
+        text-align: center;
+        margin-top: 60px;
+        padding: 30px;
+        background: linear-gradient(135deg, rgba(70, 196, 85, 0.1) 0%, rgba(70, 196, 85, 0.05) 100%);
+        border-radius: 16px;
+        border: 1px solid rgba(70, 196, 85, 0.2);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .coming-soon p {
+        font-size: 1.3rem;
+        color: #46c455;
+        font-weight: 600;
+        margin: 0;
+        text-shadow: 0 0 10px rgba(70, 196, 85, 0.3);
       }
 
       .footer {
-        background-color: #181818;
+        background: linear-gradient(135deg, #181818 0%, #1a1a1a 100%);
         padding: 20px 0;
         text-align: center;
         z-index: 2;
-        position: relative;
+        margin-top: auto;
+        border-top: 2px solid rgba(70, 196, 85, 0.2);
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        align-items: center;
       }
 
       .footer-content a.icon {
         margin: 0 15px;
         display: inline-block;
         opacity: 0.8;
-        transition: opacity 0.3s ease;
+        transition: all 0.3s ease;
+        padding: 8px;
+        border-radius: 8px;
       }
 
       .footer-content a.icon:hover {
         opacity: 1;
+        transform: translateY(-3px);
+        background: rgba(70, 196, 85, 0.1);
       }
 
       .footer-content img {
         width: 40px;
         height: 40px;
+        filter: drop-shadow(0 0 5px rgba(70, 196, 85, 0.3));
       }
 
+      /* Fade-in animation */
       .fade-in {
         opacity: 0;
         animation: fadeIn 2s ease-in-out forwards;
@@ -125,124 +310,120 @@
       @keyframes fadeIn {
         0% {
           opacity: 0;
+          transform: translateY(20px);
         }
         100% {
           opacity: 1;
+          transform: translateY(0);
         }
       }
 
-      .card.custom-card {
-        background-color: #181616;
-        border-radius: 15px;
-        color: #d4c3c3;
-        font-family: "Inconsolata", monospace;
-        transition: transform 0.3s ease;
-        margin: 20px;
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 300px;
-        max-width: 350px;
-        min-width: 260px;
-        position: relative;
-      }
-
-      .card.custom-card:hover {
-        transform: scale(1.03);
-        box-shadow: 0 0 18px #00ffcc;
-      }
-
-      .card-title {
-        font-family: "Pixelify Sans", sans-serif;
-        font-size: 2rem;
-        color: #46c455;
-        margin-bottom: 0.5rem;
-      }
-
-      .card-img-container {
-        width: 100%;
-        height: 250px;
-        background-color: #121212;
-        border-radius: 15px 15px 0 0;
-        overflow: hidden;
-      }
-
-      .card-img-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: fill;
-        display: block;
-      }
-
-      .card-body {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        min-height: 300px;
-        position: relative;
-      }
-
-      .card-text {
-        font-size: 0.9rem;
-        opacity: 80%;
-      }
-
-      .section {
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
-        gap: 40px;
-        flex-wrap: wrap;
-        margin-top: 30px;
+      /* Responsive design */
+      @media (max-width: 1200px) {
+        .card.custom-card {
+          flex: 1 1 450px;
+          max-width: 550px;
+          min-width: 350px;
+          height: 480px;
+        }
       }
 
       @media (max-width: 768px) {
         .hero-content {
-          padding: 5px;
-          width: 90%;
+          width: 95%;
         }
 
         h1 {
-          margin-top: 10px;
-          font-size: 2.2rem;
+          font-size: 3rem;
         }
 
         .section {
-          flex-direction: column;
-          align-items: center;
           gap: 20px;
-          padding: 0 10px;
+          padding: 10px 0;
         }
 
         .card.custom-card {
-          width: 100%;
-          margin: 10px 0;
-          align-items: center;
-          text-align: center;
-        }
-
-        .card-title {
-          font-size: 1.5rem;
-          text-align: center;
-        }
-
-        .card-text {
-          font-size: 0.85rem;
-          text-align: center;
-        }
-
-        .card-body {
-          min-height: auto;
-          padding: 1rem;
+          flex: 1 1 100%;
+          max-width: 100%;
+          min-width: 300px;
+          height: 450px;
         }
 
         .card-img-container {
-          height: 200px;
+          height: 180px;
+        }
+
+        .card-body {
+          padding: 20px;
+        }
+
+        .card-title {
+          font-size: 1.6rem;
+        }
+
+        .card-text {
+          font-size: 0.95rem;
+          -webkit-line-clamp: 3;
+        }
+
+        .card-footer {
+          flex-direction: column;
+          gap: 12px;
+          align-items: stretch;
+        }
+
+        .tech-stack {
+          justify-content: center;
+        }
+
+        .view-project-btn {
+          text-align: center;
         }
 
         .footer-content img {
-          width: 30px;
-          height: 30px;
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-content {
+          width: 98%;
+        }
+
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        .card.custom-card {
+          height: 420px;
+        }
+
+        .card-img-container {
+          height: 160px;
+        }
+
+        .card-body {
+          padding: 15px;
+        }
+
+        .card-title {
+          font-size: 1.4rem;
+        }
+
+        .card-text {
+          font-size: 0.9rem;
+          -webkit-line-clamp: 3;
+        }
+
+        .tech-tag {
+          font-size: 0.7rem;
+          padding: 2px 8px;
+        }
+
+        .view-project-btn {
+          font-size: 0.8rem;
+          padding: 6px 12px;
         }
       }
     </style>
@@ -262,14 +443,25 @@
                 <img src="/assets/mock_logo.png" alt="Mock O' Clock" />
               </div>
               <div class="card-body d-flex flex-column position-relative">
-                <h5 class="card-title">Mock O' Clock</h5>
-                <p class="card-text mt-2">
-                  Mock O' Clock is a full-stack Java Spring Boot web app for
-                  fantasy football fans. Users can view Average Draft Positions
-                  (ADPs), explore detailed player statistics, and run
-                  customizable mock drafts against intelligent CPU opponents —
-                  perfect for testing draft strategies before the real thing.
-                </p>
+                <div>
+                  <h5 class="card-title">Mock O' Clock</h5>
+                  <p class="card-text mt-3">
+                    Mock O' Clock is a full-stack Java Spring Boot web app for
+                    fantasy football fans. Users can view Average Draft Positions
+                    (ADPs), explore detailed player statistics, and run
+                    customizable mock drafts against intelligent CPU opponents —
+                    perfect for testing draft strategies before the real thing.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <div class="tech-stack">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Spring Boot</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">Bootstrap</span>
+                  </div>
+                  <span class="view-project-btn">View Project →</span>
+                </div>
               </div>
             </div>
           </a>
@@ -281,24 +473,35 @@
                 <img src="/assets/pollmatic-logo.png" alt="PollMatic" />
               </div>
               <div class="card-body d-flex flex-column position-relative">
-                <h5 class="card-title">PollMatic</h5>
-                <p class="card-text mt-2">
-                  PollMatic is a full-stack Go web app that makes it easy to
-                  create, share, and participate in polls. Users can create
-                  custom polls with multiple options and share them publicly or
-                  privately via a unique key. While anyone can vote without an
-                  account, registered users can manage their polls — making it
-                  perfect for quick feedback, group decisions, or anonymous
-                  input.
-                </p>
+                <div>
+                  <h5 class="card-title">PollMatic</h5>
+                  <p class="card-text mt-3">
+                    PollMatic is a full-stack Go web app that makes it easy to
+                    create, share, and participate in polls. Users can create
+                    custom polls with multiple options and share them publicly or
+                    privately via a unique key. While anyone can vote without an
+                    account, registered users can manage their polls — making it
+                    perfect for quick feedback, group decisions, or anonymous
+                    input.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <div class="tech-stack">
+                    <span class="tech-tag">Go</span>
+                    <span class="tech-tag">Gin</span>
+                    <span class="tech-tag">SQLite</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                  </div>
+                  <span class="view-project-btn">View Project →</span>
+                </div>
               </div>
             </div>
           </a>
         </div>
 
-        <p style="justify-content: center; margin-top: 80px; color: #d4c3c3">
-          More coming soon...
-        </p>
+        <div class="coming-soon">
+          <p>🚀 More exciting projects coming soon...</p>
+        </div>
       </div>
     </section>
 
@@ -390,3 +593,4 @@
     </script>
   </body>
 </html>
+

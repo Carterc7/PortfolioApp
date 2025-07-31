@@ -51,31 +51,10 @@
 
       .hero-content {
         position: relative;
-        background-color: rgb(30, 30, 30);
-        opacity: 0.85;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         z-index: 2;
-        width: 80%;
-        max-width: 1000px;
+        width: 90%;
+        max-width: 1400px;
         margin-bottom: 40px;
-      }
-
-      .hero-content::before {
-        content: "";
-        position: absolute;
-        top: -4px;
-        left: -4px;
-        right: -4px;
-        bottom: -4px;
-        border-radius: 20px;
-        border: 2px solid #121212;
-        background-size: 600% 600%;
-        z-index: -1;
-        mask-composite: exclude;
-        -webkit-mask-composite: destination-out;
-        padding: 4px;
       }
 
       h1 {
@@ -83,59 +62,100 @@
         color: #46c455;
         font-family: "Pixelify Sans", sans-serif;
         font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 0 0 20px rgba(70, 196, 85, 0.3);
       }
 
       hr {
         border: none;
-        height: 2px;
-        background: #46c455;
-        margin: 10px auto 30px auto;
-        width: 80%;
-        opacity: 0.7;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #46c455, transparent);
+        margin: 20px auto 40px auto;
+        width: 60%;
+        opacity: 0.8;
+        border-radius: 2px;
+      }
+
+      .bio-section {
+        background: linear-gradient(135deg, rgb(30, 30, 30) 0%, rgb(35, 35, 35) 100%);
+        padding: 40px;
+        border-radius: 20px;
+        margin-bottom: 40px;
+        border: 1px solid rgba(70, 196, 85, 0.1);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+        position: relative;
+      }
+
+      .bio-section::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: 22px;
+        background: linear-gradient(270deg, #ff00ff, #00ffff, #00ff00, #ff00ff);
+        background-size: 600% 600%;
+        z-index: -1;
+        animation: pulseBorder 8s ease infinite;
+        opacity: 0.3;
+      }
+
+      @keyframes pulseBorder {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
 
       .contact-button {
-        padding: 10px 20px;
-        font-size: 1.5rem;
-        font-weight: 600;
+        background: linear-gradient(135deg, #46c455, #3aa344);
         color: white;
-        background: black;
-        border: 2px solid white;
-        opacity: 0.7;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border-radius: 8px;
         text-decoration: none;
         display: inline-block;
-        transition: color 0.3s ease, border-color 0.3s ease;
-        margin-top: 20px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(70, 196, 85, 0.3);
+        margin-top: 30px;
       }
 
       .contact-button:hover {
-        color: #46c455;
-        border-color: #46c455;
-        opacity: 1;
-        background: none;
+        background: linear-gradient(135deg, #3aa344, #46c455);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(70, 196, 85, 0.4);
+        color: white;
       }
 
       .section {
-        padding-left: 60px;
-        padding-right: 60px;
-        margin-bottom: 50px;
+        padding: 0 40px;
+        margin-bottom: 40px;
         text-align: left;
-        line-height: 1.6;
+        line-height: 1.7;
       }
 
       .section p {
         font-size: 1.2rem;
+        color: #d4d4d4;
+        margin-bottom: 20px;
       }
 
       .tech-logos {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
-        margin-top: 10px;
+        gap: 20px;
+        margin-top: 20px;
       }
 
-      /* New: Ensure at least 2 columns by controlling .col flex-basis and max-width */
       .tech-logos .col {
         flex: 1 1 45%;
         max-width: 45%;
@@ -145,35 +165,54 @@
         width: 80px;
         height: 80px;
         object-fit: contain;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 0 10px rgba(70, 196, 85, 0.2));
+      }
+
+      .tech-logos img:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 15px rgba(70, 196, 85, 0.4));
       }
 
       h3 {
-        font-size: 2rem;
+        font-size: 2.2rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 10px;
+        padding: 15px;
         color: #46c455;
-        opacity: 90;
         font-family: "Pixelify Sans", sans-serif;
+        font-weight: 700;
+        text-shadow: 0 0 15px rgba(70, 196, 85, 0.3);
+        margin-bottom: 30px;
       }
 
       strong {
         color: #46c455;
-        opacity: 90;
+        font-weight: 700;
+        text-shadow: 0 0 10px rgba(70, 196, 85, 0.3);
       }
 
       .job-section {
-        background-color: #1e1e1e;
-        border-radius: 12px;
-        padding: 20px;
-        margin-bottom: 20px;
+        background: linear-gradient(135deg, #1e1e1e 0%, #252525 100%);
+        border-radius: 16px;
+        padding: 25px;
+        margin-bottom: 25px;
+        border: 1px solid rgba(70, 196, 85, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .job-section:hover {
+        border-color: rgba(70, 196, 85, 0.2);
+        box-shadow: 0 6px 25px rgba(70, 196, 85, 0.1);
+        transform: translateY(-2px);
       }
 
       .job-details {
         display: flex;
         align-items: flex-start;
-        gap: 20px;
+        gap: 25px;
       }
 
       .job-logo img {
@@ -181,35 +220,124 @@
         height: 80px;
         border-radius: 50%;
         object-fit: cover;
+        border: 2px solid rgba(70, 196, 85, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .job-logo img:hover {
+        border-color: rgba(70, 196, 85, 0.4);
+        transform: scale(1.05);
       }
 
       .job-info p {
-        margin: 5px 0;
+        margin: 8px 0;
         font-size: 1.1rem;
+        color: #d4d4d4;
+        line-height: 1.6;
+      }
+
+      .job-info strong {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      .tech-section {
+        background: linear-gradient(135deg, #1a1a1a 0%, #202020 100%);
+        padding: 40px;
+        border-radius: 20px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        border: 1px solid rgba(70, 196, 85, 0.1);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .experience-section {
+        background: linear-gradient(135deg, #1a1a1a 0%, #202020 100%);
+        padding: 40px;
+        border-radius: 20px;
+        border: 1px solid rgba(70, 196, 85, 0.1);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .tech-card {
+        background: linear-gradient(135deg, #2a2a2a 0%, #303030 100%);
+        color: #e6e6e6;
+        border: 2px solid rgba(70, 196, 85, 0.1);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(70, 196, 85, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .tech-card:hover {
+        border-color: rgba(70, 196, 85, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(70, 196, 85, 0.2);
+      }
+
+      .tech-card img {
+        height: 80px;
+        width: 80px;
+        object-fit: contain;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 0 10px rgba(70, 196, 85, 0.2));
+      }
+
+      .tech-card:hover img {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 15px rgba(70, 196, 85, 0.4));
+      }
+
+      .card-title {
+        font-family: "Pixelify Sans", sans-serif;
+        font-size: 1.25rem;
+        color: #46c455;
+        font-weight: 700;
+        text-shadow: 0 0 10px rgba(70, 196, 85, 0.3);
+      }
+
+      .card-text {
+        font-size: 1rem;
+        color: #d4d4d4;
+        font-weight: 600;
       }
 
       .footer {
-        background-color: #181818;
-        padding: 20px 0;
+        background: linear-gradient(135deg, #181818 0%, #1a1a1a 100%);
+        padding: 30px 0;
         text-align: center;
         z-index: 2;
-        position: relative;
+        margin-top: auto;
+        border-top: 2px solid rgba(70, 196, 85, 0.2);
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        align-items: center;
       }
 
       .footer-content a.icon {
         margin: 0 15px;
         display: inline-block;
         opacity: 0.8;
-        transition: opacity 0.3s ease;
+        transition: all 0.3s ease;
+        padding: 8px;
+        border-radius: 8px;
       }
 
       .footer-content a.icon:hover {
         opacity: 1;
+        transform: translateY(-3px);
+        background: rgba(70, 196, 85, 0.1);
       }
 
       .footer-content img {
         width: 40px;
         height: 40px;
+        filter: drop-shadow(0 0 5px rgba(70, 196, 85, 0.3));
       }
 
       /* Fade-in animation */
@@ -221,80 +349,50 @@
       @keyframes fadeIn {
         0% {
           opacity: 0;
+          transform: translateY(20px);
         }
         100% {
           opacity: 1;
+          transform: translateY(0);
         }
       }
 
-      .tech-section {
-        background-color: #181818;
-        padding: 30px 40px 50px 40px;
-        border-radius: 16px;
-        margin-top: 50px;
-        margin-bottom: 20px;
-      }
-
-      .experience-section {
-        background-color: #181818;
-        padding: 30px 40px;
-        border-radius: 16px;
-      }
-
-      .tech-card {
-        background-color: #2a2a2a;
-        color: #e6e6e6;
-        border: 2px solid #121212;
-        transition: transform 0.2s ease, box-shadow 0.3s ease;
-        box-shadow: 0 0 10px rgba(70, 196, 85, 0.1);
-      }
-
-      .tech-card img {
-        height: 80px;
-        width: 80px;
-        object-fit: contain;
-      }
-
-      .card-title {
-        font-family: "Pixelify Sans", sans-serif;
-        font-size: 1.25rem;
-        color: #46c455;
-      }
-
-      .card-text {
-        font-size: 1rem;
-      }
-
-      /* Responsive tweaks */
-
+      /* Responsive design */
       @media (max-width: 768px) {
         .hero-content {
-          padding: 10px;
-          width: 90%;
+          width: 95%;
         }
 
         h1 {
-          font-size: 2.2rem;
+          font-size: 3rem;
+        }
+
+        h3 {
+          font-size: 1.8rem;
+        }
+
+        .bio-section {
+          padding: 25px 20px;
         }
 
         .section {
-          padding-left: 5px;
-          padding-right: 5px;
+          padding: 0 20px;
         }
 
         .section p {
-          font-size: 1rem;
+          font-size: 1.1rem;
         }
 
         .job-details {
           flex-direction: column;
           align-items: center;
           text-align: center;
+          gap: 15px;
         }
 
         .job-logo img {
-          width: 40px;
-          height: 40px;
+          width: 60px;
+          height: 60px;
         }
 
         .job-info p {
@@ -303,16 +401,15 @@
 
         .tech-section,
         .experience-section {
-          padding: 5px;
+          padding: 25px 20px;
           margin-top: 30px;
-          margin-bottom: 30px;
+          margin-bottom: 20px;
         }
 
         .tech-logos {
-          gap: 10px;
+          gap: 15px;
         }
 
-        /* Smaller tech cards & images on medium-small screens */
         .tech-logos .col {
           flex-basis: 45%;
           max-width: 45%;
@@ -321,6 +418,55 @@
         .tech-card img {
           height: 60px;
           width: 60px;
+        }
+
+        .card-title {
+          font-size: 1.1rem;
+        }
+
+        .card-text {
+          font-size: 0.9rem;
+        }
+
+        .contact-button {
+          font-size: 1.1rem;
+          padding: 12px 24px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-content {
+          width: 98%;
+        }
+
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        h3 {
+          font-size: 1.6rem;
+        }
+
+        .bio-section {
+          padding: 20px 15px;
+        }
+
+        .section {
+          padding: 0 15px;
+        }
+
+        .section p {
+          font-size: 1rem;
+        }
+
+        .tech-logos .col {
+          flex-basis: 45%;
+          max-width: 45%;
+        }
+
+        .tech-card img {
+          height: 50px;
+          width: 50px;
         }
 
         .card-title {
@@ -332,34 +478,8 @@
         }
 
         .contact-button {
-          font-size: 1.1rem;
-          padding: 8px 16px;
-        }
-
-        h3 {
-          font-size: 1.5rem;
-          text-align: center;
-        }
-      }
-
-      @media (max-width: 480px) {
-        /* Stack cards vertically on very small screens */
-        .tech-logos .col {
-          flex-basis: 45%;
-          max-width: 45%;
-        }
-
-        .tech-card img {
-          height: 60px;
-          width: 60px;
-        }
-
-        .card-title {
           font-size: 1rem;
-        }
-
-        .card-text {
-          font-size: 0.8rem;
+          padding: 10px 20px;
         }
       }
     </style>
@@ -371,28 +491,32 @@
       <div class="hero-content fade-in">
         <h1>&lt; about /&gt;</h1>
         <hr />
-        <div class="section">
-          <p>
-            Hey there! I'm
-            <strong style="font-size: 1.4rem">Carter Campbell,</strong> a
-            passionate full-stack developer on a mission to create awesome
-            applications.
-          </p>
-          <p>
-            I graduated from
-            <strong style="font-size: 1.4rem">Grand Canyon University</strong>
-            with my Bachelor's of Science in Software Development in April,
-            2025.
-          </p>
-          <p>
-            While I primarily focus on
-            <strong style="font-size: 1.4rem">back-end</strong> technologies,
-            I’ve been actively working on improving my
-            <strong style="font-size: 1.4rem">front-end skills.</strong> Over
-            time, I’ve gained experience with frameworks like React and Angular,
-            and I'm always excited to create seamless and interactive user
-            experiences.
-          </p>
+        
+        <!-- Bio Section with Background -->
+        <div class="bio-section">
+          <div class="section">
+            <p>
+              Hey there! I'm
+              <strong style="font-size: 1.4rem">Carter Campbell,</strong> a
+              passionate full-stack developer on a mission to create awesome
+              applications.
+            </p>
+            <p>
+              I graduated from
+              <strong style="font-size: 1.4rem">Grand Canyon University</strong>
+              with my Bachelor's of Science in Software Development in April,
+              2025.
+            </p>
+            <p>
+              While I primarily focus on
+              <strong style="font-size: 1.4rem">back-end</strong> technologies,
+              I've been actively working on improving my
+              <strong style="font-size: 1.4rem">front-end skills.</strong> Over
+              time, I've gained experience with frameworks like React and Angular,
+              and I'm always excited to create seamless and interactive user
+              experiences.
+            </p>
+          </div>
         </div>
 
         <!-- Experience Section -->
@@ -407,12 +531,8 @@
                 <img src="assets/gocarreralogo.jpeg" alt="Go Carrera Logo" />
               </div>
               <div class="job-info">
-                <p>
-                  <strong
-                    >Software Developer Intern — Go Carrera (Skilled Pro
-                    Alliance Inc.)</strong
-                  ><br />May 2024 - September 2024
-                </p>
+                <strong>Software Developer Intern — Go Carrera (Skilled Pro Alliance Inc.)</strong>
+                <p>May 2024 - September 2024</p>
                 <p>
                   At Go Carrera, I used a GO/HTMX stack to build a UI for
                   flooring installers to authenticate completed
@@ -431,11 +551,8 @@
                 <img src="assets/burnslogo.png" alt="Burns & McDonnell Logo" />
               </div>
               <div class="job-info">
-                <p>
-                  <strong
-                    >Integration Developer Intern — Burns & McDonnell</strong
-                  ><br />May 2023 - September 2023
-                </p>
+                <strong>Integration Developer Intern — Burns & McDonnell</strong>
+                <p>May 2023 - September 2023</p>
                 <p>
                   At Burns & McDonnell, I worked on enterprise-level software
                   solutions using the MuleSoft Anypoint Platform. I learned the
@@ -454,10 +571,8 @@
                 <img src="assets/noblelogo.png" alt="Noblehaus Living Logo" />
               </div>
               <div class="job-info">
-                <p>
-                  <strong>Web Designer — Noblehaus Living</strong
-                  ><br />September 2022 - November 2022
-                </p>
+                <strong>Web Designer — Noblehaus Living</strong>
+                <p>September 2022 - November 2022</p>
                 <p>
                   At Noblehaus, I used the Wix website builder to redesign their
                   homepage, improving the aesthetic and usability. Integrated
@@ -470,12 +585,11 @@
         </div>
 
         <!-- Languages & Frameworks Section -->
-        <!-- Languages & Frameworks Section -->
         <div class="section tech-section">
           <h3>My Languages and Frameworks</h3>
           <hr />
           <div
-            class="tech-logos row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-2"
+            class="tech-logos row row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3"
           >
             <!-- Java -->
             <div class="col">

@@ -30,37 +30,65 @@
       }
 
       .content-wrapper {
-        padding: 60px 20px;
-        max-width: 1000px;
+        padding: 80px 20px 40px 20px;
+        max-width: 1200px;
         margin: auto;
       }
 
       h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
         color: #46c455;
         font-family: "Pixelify Sans", sans-serif;
         font-weight: 700;
         text-align: center;
         margin-bottom: 30px;
+        text-shadow: 0 0 20px rgba(70, 196, 85, 0.3);
+      }
+
+      hr {
+        border: none;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #46c455, transparent);
+        margin: 20px auto 40px auto;
+        width: 60%;
+        opacity: 0.8;
+        border-radius: 2px;
       }
 
       p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: #ccc;
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: #d4d4d4;
+        margin-bottom: 25px;
       }
 
       .glow-box {
-        background-color: rgb(30, 30, 30);
+        background: linear-gradient(135deg, rgb(30, 30, 30) 0%, rgb(35, 35, 35) 100%);
         padding: 40px;
-        border-radius: 20px;
+        border-radius: 24px;
         position: relative;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         margin-bottom: 50px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        border: 1px solid rgba(70, 196, 85, 0.1);
+      }
+
+      .glow-box::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: 26px;
+        background: linear-gradient(270deg, #ff00ff, #00ffff, #00ff00, #ff00ff);
+        background-size: 600% 600%;
+        z-index: -1;
+        animation: pulseBorder 8s ease infinite;
+        opacity: 0.3;
       }
 
       @keyframes pulseBorder {
@@ -78,174 +106,283 @@
       .carousel {
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-        justify-content: center;
+        box-shadow: 0 8px 32px rgba(70, 196, 85, 0.2);
+        margin: 40px 0;
+        background: linear-gradient(135deg, #1a1a1a 0%, #222222 100%);
+        border: 1px solid rgba(70, 196, 85, 0.2);
+      }
+
+      .carousel-item {
+        position: relative;
       }
 
       .carousel-item p {
         font-family: "Pixelify Sans", sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         display: flex;
         justify-content: center;
-        margin-top: 10px;
+        margin: 20px 0 10px 0;
         color: #46c455;
-        padding: 0 10px;
+        padding: 0 20px;
         text-align: center;
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba(70, 196, 85, 0.3);
       }
 
       .carousel img {
         object-fit: contain;
         width: 100%;
         height: 500px;
-        background-color: #111;
+        background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+        padding: 20px;
       }
 
-      .carousel-indicators [data-bs-target] {
-        background-color: #00ffff;
+      /* Enhanced Carousel Controls */
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, rgba(70, 196, 85, 0.2), rgba(70, 196, 85, 0.1));
+        border: 2px solid rgba(70, 196, 85, 0.3);
+        border-radius: 50%;
+        margin: auto 20px;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .carousel-control-prev:hover,
+      .carousel-control-next:hover {
+        background: linear-gradient(135deg, rgba(70, 196, 85, 0.4), rgba(70, 196, 85, 0.2));
+        border-color: rgba(70, 196, 85, 0.6);
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(70, 196, 85, 0.4);
       }
 
       .carousel-control-prev-icon,
       .carousel-control-next-icon {
-        background-color: rgba(1, 11, 11, 0.5);
+        width: 30px;
+        height: 30px;
+        filter: drop-shadow(0 0 5px rgba(70, 196, 85, 0.5));
+      }
+
+      /* Enhanced Carousel Indicators */
+      .carousel-indicators {
+        bottom: 20px;
+        gap: 8px;
+      }
+
+      .carousel-indicators button {
+        width: 12px;
+        height: 12px;
         border-radius: 50%;
-        padding: 5px;
+        background: rgba(70, 196, 85, 0.3);
+        border: 2px solid rgba(70, 196, 85, 0.5);
+        transition: all 0.3s ease;
+        margin: 0 4px;
+      }
+
+      .carousel-indicators button.active {
+        background: #46c455;
+        border-color: #46c455;
+        box-shadow: 0 0 10px rgba(70, 196, 85, 0.6);
+        transform: scale(1.2);
+      }
+
+      .carousel-indicators button:hover {
+        background: rgba(70, 196, 85, 0.6);
+        border-color: rgba(70, 196, 85, 0.8);
+        transform: scale(1.1);
+      }
+
+      .github-link {
+        color: #46c455 !important;
+        font-weight: 600 !important;
+        font-size: 1.1rem !important;
+        text-decoration: none;
+        padding: 12px 24px;
+        border: 2px solid rgba(70, 196, 85, 0.3);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, rgba(70, 196, 85, 0.1), rgba(70, 196, 85, 0.05));
+        margin: 10px;
+        display: inline-block;
+      }
+
+      .github-link:hover {
+        color: #ffffff !important;
+        background: linear-gradient(135deg, #46c455, #3aa344);
+        border-color: #46c455;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(70, 196, 85, 0.3);
       }
 
       .stack-logos {
         display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: 30px;
         margin-top: 30px;
+        flex-wrap: wrap;
       }
 
       .stack-logos img {
-        height: 80px;
+        width: 60px;
+        height: 60px;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 0 10px rgba(70, 196, 85, 0.2));
+      }
+
+      .stack-logos img:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 15px rgba(70, 196, 85, 0.4));
+      }
+
+      .mock-logo img {
         width: 80px;
-        max-width: 80px;
-      }
-
-      .stack-logos .mock-logo img {
-        width: 180px;
-        height: 100px;
-        max-width: none;
-      }
-
-      hr {
-        border: none;
-        height: 2px;
-        background: #46c455;
-        margin: 10px auto 30px auto;
-        width: 80%;
-        opacity: 0.7;
-      }
-
-      .center-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0px;
+        height: 80px;
       }
 
       .features-list {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.1rem;
-        padding: 0 20px;
+        width: 100%;
+        max-width: 800px;
       }
 
       .features-list ul {
-        list-style-type: disc;
-        padding-left: 1.2rem;
+        list-style: none;
+        padding: 0;
         margin: 0;
-        max-width: 600px;
+      }
+
+      .features-list li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(70, 196, 85, 0.2);
+        font-size: 1.1rem;
+        color: #d4d4d4;
+        position: relative;
+        padding-left: 30px;
+      }
+
+      .features-list li:before {
+        content: "▸";
+        color: #46c455;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: 12px;
+        text-shadow: 0 0 10px rgba(70, 196, 85, 0.5);
+      }
+
+      .features-list li:last-child {
+        border-bottom: none;
       }
 
       .footer {
-        background-color: #181818;
-        padding: 20px 0;
+        background: linear-gradient(135deg, #181818 0%, #1a1a1a 100%);
+        padding: 30px 0;
         text-align: center;
-        z-index: 2;
-        position: relative;
+        margin-top: 60px;
+        border-top: 2px solid rgba(70, 196, 85, 0.2);
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        align-items: center;
       }
 
       .footer-content a.icon {
         margin: 0 15px;
         display: inline-block;
         opacity: 0.8;
-        transition: opacity 0.3s ease;
+        transition: all 0.3s ease;
+        padding: 8px;
+        border-radius: 8px;
       }
 
       .footer-content a.icon:hover {
         opacity: 1;
+        transform: translateY(-3px);
+        background: rgba(70, 196, 85, 0.1);
       }
 
       .footer-content img {
         width: 40px;
         height: 40px;
+        filter: drop-shadow(0 0 5px rgba(70, 196, 85, 0.3));
       }
 
-      .github-link:hover {
-        transform: scale(1.2);
-      }
-
-      /* Responsive Styles */
+      /* Responsive Design */
       @media (max-width: 768px) {
+        .content-wrapper {
+          padding: 60px 15px 30px 15px;
+        }
+
         h1 {
-          font-size: 2.2rem;
+          font-size: 2.5rem;
         }
 
         .glow-box {
           padding: 25px 20px;
-        }
-
-        p {
-          font-size: 1rem;
+          margin-bottom: 30px;
         }
 
         .carousel img {
-          height: 300px;
+          height: 350px;
+          padding: 15px;
         }
 
         .carousel-item p {
           font-size: 1.2rem;
-          padding: 0 15px;
+          margin: 15px 0 5px 0;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+          width: 50px;
+          height: 50px;
+          margin: auto 10px;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+          width: 25px;
+          height: 25px;
         }
 
         .stack-logos {
-          gap: 15px;
+          gap: 20px;
         }
 
         .stack-logos img {
-          height: 60px;
+          width: 50px;
+          height: 50px;
+        }
+
+        .mock-logo img {
           width: 60px;
-          max-width: 60px;
+          height: 60px;
         }
 
-        .stack-logos .mock-logo img {
-          width: 140px;
-          height: 80px;
-          max-width: none;
+        .github-link {
+          font-size: 1rem !important;
+          padding: 10px 20px;
+          margin: 8px;
         }
 
-        .features-list {
+        .features-list li {
           font-size: 1rem;
-          padding: 0 10px;
-        }
-
-        .features-list ul {
-          max-width: 100%;
-          padding-left: 1rem;
+          padding: 10px 0 10px 25px;
         }
       }
 
       @media (max-width: 480px) {
+        .content-wrapper {
+          padding: 50px 10px 20px 10px;
+        }
+
         h1 {
-          font-size: 1.8rem;
-          margin-bottom: 20px;
+          font-size: 2rem;
         }
 
         .glow-box {
@@ -253,72 +390,87 @@
         }
 
         .carousel img {
-          height: 220px;
+          height: 250px;
+          padding: 10px;
         }
 
         .carousel-item p {
           font-size: 1rem;
-          padding: 0 10px;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+          width: 40px;
+          height: 40px;
+          margin: auto 5px;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+          width: 20px;
+          height: 20px;
         }
 
         .stack-logos {
-          gap: 10px;
+          gap: 15px;
         }
 
         .stack-logos img {
-          height: 50px;
+          width: 40px;
+          height: 40px;
+        }
+
+        .mock-logo img {
           width: 50px;
-          max-width: 50px;
+          height: 50px;
         }
 
-        .stack-logos .mock-logo img {
-          width: 150px;
-          height: 70px;
-          max-width: none;
-        }
-
-        .features-list {
-          font-size: 0.95rem;
-          padding: 0 5px;
+        .github-link {
+          font-size: 0.9rem !important;
+          padding: 8px 16px;
+          margin: 6px;
         }
       }
     </style>
   </head>
   <body>
     {{ template "navbar" . }}
-
     <div class="content-wrapper">
       <div class="glow-box">
         <h1>&lt; Mock O' Clock /&gt;</h1>
         <hr />
         <p>
-          Mock O' Clock is a fantasy football web app designed to help users
-          prepare for their drafts like pros. Built with Java Spring Boot, it
-          offers mock draft simulations, player stats, numerous ADP formats, and
-          more — all in an interactive and stylish interface. Whether you're new
-          to fantasy football or a seasoned veteran, Mock O' Clock gives you the
-          tools to experiment, analyze, and dominate your league.
+          Mock O' Clock is a comprehensive fantasy football application designed
+          to help users prepare for their drafts. Built with Java Spring Boot,
+          it provides a robust platform for viewing player statistics, exploring
+          Average Draft Positions (ADPs), and participating in mock drafts
+          against intelligent CPU opponents.
         </p>
-        <div
-          style="display: flex; justify-content: center; align-items: center; margin-bottom: 5px;"
-        >
+        <p>
+          The application features a clean, intuitive interface that makes it
+          easy to navigate through player data, compare statistics, and test
+          different draft strategies. Whether you're a seasoned fantasy player
+          or just getting started, Mock O' Clock provides the tools you need to
+          make informed decisions and improve your draft performance.
+        </p>
+        <p>
+          With real-time data updates and customizable draft settings, users can
+          simulate various draft scenarios and practice their strategies before
+          the actual draft day. The platform serves as an essential tool for
+          fantasy football enthusiasts looking to gain a competitive edge.
+        </p>
+        <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0; flex-wrap: wrap;">
           <a
             class="github-link"
-            style="color: #46c455; font-weight: bold; font-size: 1.1rem;"
             href="https://github.com/Carterc7/FantasyApp"
             target="_blank"
-            >github repo</a
+            >📁 GitHub Repository</a
           >
-        </div>
-        <div
-          style="display: flex; justify-content: center; align-items: center"
-        >
           <a
             class="github-link"
-            style="color: #46c455; font-weight: bold; font-size: 1.1rem;"
             href="https://www.mockoclockfantasy.com/"
             target="_blank"
-            >visit Mock O' Clock</a
+            >🌐 Visit Live Site</a
           >
         </div>
         <div class="stack-logos">
@@ -419,15 +571,13 @@
         <div class="features-list">
           <ul>
             <li>Create an account to draft and save your teams</li>
-            <li>Secures user information</li>
-            <li>
-              Utilizes an API service to fetch recent player stats and general
-              player information.
-            </li>
-            <li>Compete in mock drafts with CPU auto-picks</li>
+            <li>Secures user information with authentication</li>
+            <li>Utilizes API service to fetch recent player stats and information</li>
+            <li>Compete in mock drafts with intelligent CPU auto-picks</li>
             <li>Frequently updated ADP lists for numerous formats</li>
-            <li>View completed teams and leagues</li>
-            <li>Styled interface using Bootstrap and custom CSS</li>
+            <li>View completed teams and league history</li>
+            <li>Modern interface using Bootstrap and custom CSS</li>
+            <li>Responsive design for all device sizes</li>
           </ul>
         </div>
       </div>
